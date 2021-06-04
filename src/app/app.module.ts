@@ -1,3 +1,4 @@
+import { LeaderService } from './services/leader.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -42,7 +43,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    LeaderService
   ],
   bootstrap: [AppComponent]
 })
