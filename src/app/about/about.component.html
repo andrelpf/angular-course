@@ -58,6 +58,10 @@
 
   <div fxFlex>
     <h2 fxLayout="column" fxLayout="row">Corporate Leadership</h2>
+    <div [hidden]="leaders">
+      <mat-spinner></mat-spinner>
+      <h4>Loading . . . Please Wait</h4>
+    </div>
     <div fxLayout="column" fxLayout="row">
       <mat-list fxFlex>
         <mat-list-item *ngFor="let leader of leaders">
