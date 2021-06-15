@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule,
-  MatGridListModule, MatInputModule, MatListModule, MatSelectModule, MatSlideToggleModule, MatToolbarModule
+  MatGridListModule, MatInputModule, MatListModule, MatSelectModule, MatSliderModule, MatSlideToggleModule, MatToolbarModule
 } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -57,7 +57,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule
   ],
   providers: [
     DishService,
