@@ -5,7 +5,7 @@ import { Dish } from '../shared/dish';
 import { Promotion } from '../shared/promotion';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
-import { flyInOut } from '../animations/app.animation';
+import { expand, flyInOut } from '../animations/app.animation';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,8 @@ import { flyInOut } from '../animations/app.animation';
     'style': 'display: block;'
   },
   animations: [
-    flyInOut()
+    flyInOut(),
+    expand()
   ]
 })
 
