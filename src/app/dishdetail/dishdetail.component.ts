@@ -1,12 +1,13 @@
-import { Comment } from './../shared/comment';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { switchMap } from 'rxjs/operators';
 import { Dish } from '../shared/dish';
 import { DishService } from './../services/dish.service';
-import { switchMap } from 'rxjs/operators';
+import { Comment } from './../shared/comment';
+
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
@@ -19,6 +20,7 @@ export class DishdetailComponent implements OnInit {
   next: string;
   commentForm: FormGroup;
   comment: Comment;
+  errMess: string;
 
   formErrors = {
     author: '',
@@ -38,7 +40,8 @@ export class DishdetailComponent implements OnInit {
   constructor(private dishService: DishService,
     private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
     this.dishService.getDishIds().subscribe((dishIds) => this.dishIds = dishIds);
@@ -47,7 +50,8 @@ export class DishdetailComponent implements OnInit {
     ).subscribe(dish => {
       this.dish = dish;
       this.setPrevNext(dish.id);
-    });
+    },
+      errmess => this.errMess = <any>errmess);
     this.createForm();
   }
 

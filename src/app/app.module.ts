@@ -1,3 +1,4 @@
+import { baseURL } from './shared/baseurl';
 import { LeaderService } from './services/leader.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,7 @@ import { PromotionService } from './services/promotion.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     // Mat Modules
     MatToolbarModule,
     MatListModule,
@@ -63,7 +66,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    { provide: 'BaseURL', useValue: baseURL }
   ],
   entryComponents: [
     LoginComponent
