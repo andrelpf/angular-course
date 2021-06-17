@@ -9,7 +9,7 @@
     <h2>Error</h2>
     <h4>{{errMess}}</h4>
   </div>
-  <div fxFlex="40" *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
     <div fxFlex>
       <mat-card>
         <mat-card-header>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div fxFlex="40" *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
     <div fxFlex>
       <mat-list>
         <h1> Comments</h1>
